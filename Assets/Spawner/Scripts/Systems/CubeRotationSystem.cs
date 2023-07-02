@@ -16,7 +16,7 @@ namespace Spawner.Scripts.Systems
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            new CubeRotationJob { DeltaTime = SystemAPI.Time.DeltaTime }.ScheduleParallel();
+            new CubeRotationJob { DeltaTime = SystemAPI.Time.DeltaTime }.Schedule();
         }
 
         [BurstCompile]
@@ -26,6 +26,7 @@ namespace Spawner.Scripts.Systems
         }
     }
     
+    [BurstCompile]
     [WithAll(typeof(CubeTag), typeof(LocalTransform))]
     public partial struct CubeRotationJob : IJobEntity
     {

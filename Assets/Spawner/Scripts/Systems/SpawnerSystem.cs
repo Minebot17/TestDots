@@ -29,10 +29,11 @@ namespace Spawner.Scripts.Systems
                 Ecb = ecb,
                 ElapsedTime = SystemAPI.Time.ElapsedTime,
                 Rnd = SystemAPI.GetSingletonRW<RandomData>()
-            }.ScheduleParallel();
+            }.Schedule();
         }
     }
     
+    [BurstCompile]
     public partial struct SpawnerJob : IJobEntity
     {
         public EntityCommandBuffer.ParallelWriter Ecb;
